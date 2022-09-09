@@ -27,11 +27,7 @@ public class FangshuaInterceptor implements HandlerInterceptor {
             if(accessLimit == null){
                 return true;
             }
-            /**输出方法中的注释 进行多次的标注
-            AccessLimit accessLimit1=hm.getMethodAnnotation(AccessLimit.class);
-            if(accessLimit==null){
-                return true;
-            }*/
+          
 
             //int seconds_1=accessLimit.seconds();//定义字段类型
 
