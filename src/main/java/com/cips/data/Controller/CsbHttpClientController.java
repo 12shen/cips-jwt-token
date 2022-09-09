@@ -26,34 +26,6 @@ public class CsbHttpClientController {
     private String sk;
     @Value("${csb.dk}")
     private String dk;
-/**-------------------------加解密逻辑--------------------------------------------
-
-    private ResponseMessage getCsbGttpClient(@ResponseBody JSONObject jsonObject){
-        //加密
-        string jsonData=this。getEncryptData(jsonObject,dk);
-        JSONObject result=this.post(jsonData, apiName:”getStockRank“,apiversion:"1.0.0",ak sk);
-        if(result.containsKey("code")){
-            if("200".equals(result.getString(key:"code"))){
-                String decodeData=this.getDecodeData(result.getString(key:"data"),dk);
-                JSONObject json=JSON.parseObject(decodeData);
-                return ResponseMessage.ok(json);
-
-            }
-        }
-        //加密逻辑
-        return ResponseMessage.error(result.getString(key:"message"));
-        //加密
-        public String getEncryptData(JSONObject jsonObject,String key){
-            return AESUtil.aesEncode(JSON.toJSONString(jsonObject),key);
-        }
-        //解密
-        public String getDecodeData(String content,string key){return AESUtil.aesEncode(content,key);}
-        //post请求
-        public JSONObject post(String conent,String apiName,String apiVersion,String ak,String sk){
-            HttpParameters.Builder builder=HttpParameters.newBuilder();
-            builder.requestURL(url);
-        }
-    }*/
 
     //-----------------------------------------------------------------------------------------
     @RequestMapping("/test")
