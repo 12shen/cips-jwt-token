@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> ZTREE DEMO </title>
+    <link rel="shortcut icon" href="#"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" th:href="@{/static/css/ztree/demo.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/static/css/ztree/zTreeStyle/zTreeStyle.css}" type="text/css">
+    <script type="text/javascript" th:src="@{/static/js/ztree/jquery-1.4.4.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/ztree/jquery.ztree.core.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/ztree/jquery.ztree.excheck.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/ztree/jquery.ztree.exedit.js}"></script>
+    <script th:src="@{/static/js/common/common.js}"></script>
+</head>
+<body>
+<div>
+    <ul id="treeDemo" class="ztree"></ul>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+    var zTreeObj;
+    $.ajax({
+        url: ctx + "/api/tree",
+        type: "post",
+        dataType: "json",
+        success: function(res) {
+            // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+            var setting = {
+                data: {
+                    simpleData: {
+                        enable: true,
+                        idKey: "id",
+                        pIdKey: "pid",
+                        rootPId: ""
+                    }
+                },
+                view: {
+                    expandSpeed: "fast"
+                },
+                check: {
+                    enable: true
+                }
+            };
+            // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+            var zNodes = res.data.list;
+            console.log("树：" + JSON.stringify(zNodes));
+            zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+            /*var nodes = zTreeObj.getNodes();
+            for (var i = 0; i < nodes.length; i++) { //设置节点展开
+                zTreeObj.expandNode(nodes[i], true, false, true);
+            }*/
+        },
+        error:function (e) {
+            console.log("e:" + e);
+        }
+    });
+</SCRIPT>
+</body>
+</html>
