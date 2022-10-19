@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh" xmlns:th="http://www.XXXX.org">
 <head>
     <meta charset="UTF-8">
     <title> ZTREE DEMO </title>
@@ -24,7 +24,7 @@
         type: "post",
         dataType: "json",
         success: function(res) {
-            // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+            // zTree 的参数配置
             var setting = {
                 data: {
                     simpleData: {
@@ -41,7 +41,7 @@
                     enable: true
                 }
             };
-            // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+            // zTree 数据属性
             var zNodes = res.data.list;
             console.log("树：" + JSON.stringify(zNodes));
             zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
