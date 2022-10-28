@@ -78,7 +78,7 @@ CREATE TABLE `filesmanage` (
 INSERT INTO `filesmanage` VALUES ('1', '测试', null, null, null, null);
 
 -- ----------------------------
--- Table structure for sys_task
+-- Table structure for sys_task/execute.*
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_task`;
 CREATE TABLE `sys_task` (
