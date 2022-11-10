@@ -20,14 +20,12 @@ package com.cips.data.Util;
    {
      return create("0", null, null);
    }
-
    //public static com.example.demo.Util.ResponseMessage fail(){return create (status:"0",message:null,data:null);}
  
    public static ResponseMessage ok(String message)
    {
      return create("0", message, null);
    }
-
 
  
    public static <T> ResponseMessage ok(String message, T data)
@@ -59,7 +57,7 @@ package com.cips.data.Util;
 
 
    private static ResponseMessage create(String status, String message, Object data) {
-     ResponseMessage t = new ResponseMessage();//票据交易
+     ResponseMessage t = new ResponseMessage();
      t.setStatus(status);
      t.setMessage(message);
      t.setData(data);
