@@ -23,6 +23,32 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         if(!(object instanceof HandlerMethod)){
             return true;
         }
+        /*
+        HandlerMethod handlerMethod_flag=(HandlerMethod)object;
+        Method method_flag = handlerMetod.getMethod();
+        if(method.isAnnotationPresent(PassToken.class)){
+            PassToken passToken = method.getAnnotation(PassToken.class);
+            if(passToken.required()){
+                return true;
+            }
+        }//
+        if(method.isAnnotationPresent(UserLoginToken.class)){
+            //参数字段信息
+            UserLoginToken userLoginToken = method.getAnnotation(UserLoginToken.class);
+            if(userLoginToken.required()){
+                //认证
+                if(token == null){
+                    throw new  RuntimeException("无token，请重新登录");
+                }
+                if(JwtTokenUtil.verifyToken(token,s:"123456")){
+                    return true;
+                }else{
+                   throw new RuntimeException("402");
+                }
+            }
+            }
+        }*/
+
         HandlerMethod handlerMethod=(HandlerMethod)object;
         Method method=handlerMethod.getMethod();
         //检查是否有passtoken注释，有则跳过认证
@@ -52,7 +78,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                     throw new RuntimeException("用户不存在，请重新登录");
                 }*/
                 // 验证 token
-                if(JwtTokenUtil.verifyToken(token)){
+                if(JwtTokenUtil.verifyToken(token, "123456")){
                     return true;
                 }else {
                     throw new RuntimeException("401");
@@ -62,7 +88,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         return true;
     }
 
-    public void postHandle(HttpServletRequest httpServletRequest,)
+   // public void postHandle(HttpServletRequest httpServletRequest,)
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
 
