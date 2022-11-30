@@ -24,7 +24,7 @@ public class MyInterceptor implements HandlerInterceptor {
             String methodName = method.getName();
             logger.info("====拦截到了方法：{}，在该方法执行之前执行====", methodName);
 
-/**
+/*
 
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Method method=handlerMethod.getMethod();
