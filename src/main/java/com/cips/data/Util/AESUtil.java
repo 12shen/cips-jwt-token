@@ -148,38 +148,7 @@ public class AESUtil {
         //如果有错就返null
         return null;
     }
-  /*成传参--
-    public class query_1(){
-        //生成加密权重参数--ip字段
-        Cipher bytecode= cipher.init();//初始化参数字段
-        public Cipher getBytecode() {
-            return bytecode;
-        }
-        bytecode.getCache();
-        //缓存字段--字段检测
-        bytecode.setDown();
-        //setdown字段
-        bytecode.getCache();
-        //生成getset方法
-        //生成模拟UAT
-        private getApi(){
-            //生成api字段
-            String L1=new String();
-            String R1=new String();
-            //生成参数字段
-            char l2 = new char();
-            char l3 = new char();
-            //形式化 integer
-            Integer L4 = new Integer();
-            AESUtil L5 = new AESUtil();
-            //参数自定义
-            QuertzManage Qm_1 = new QuertzManage();//实例化manage();
-            QuartzConfigration Qc_1 =new QuartzConfigration();
-            //复用sharingmodel
-            AESUtil.this.clone();
-        }
-    }*/
-//字段参数--字段
+
 
     public static void main(String[] args) {
 //        String[] keys = {
